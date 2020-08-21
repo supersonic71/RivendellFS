@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Lobby.gd" type="Script" id=2]
+
+[node name="Lobby" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Host" type="Button" parent="."]
+margin_left = 408.237
+margin_top = 72.5214
+margin_right = 572.237
+margin_bottom = 145.521
+custom_fonts/font = ExtResource( 1 )
+text = "HOST"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join" type="Button" parent="."]
+margin_left = 420.252
+margin_top = 180.071
+margin_right = 586.252
+margin_bottom = 250.071
+custom_fonts/font = ExtResource( 1 )
+text = "Join"
+
+[node name="Update_list" type="Button" parent="."]
+margin_left = 428.556
+margin_top = 295.437
+margin_right = 590.556
+margin_bottom = 367.437
+custom_fonts/font = ExtResource( 1 )
+text = "Update list"
+
+[node name="Start" type="Button" parent="."]
+margin_left = 425.83
+margin_top = 406.522
+margin_right = 597.83
+margin_bottom = 477.522
+custom_fonts/font = ExtResource( 1 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Host" to="." method="host_server"]
+[connection signal="pressed" from="Join" to="." method="join_server"]
+[connection signal="pressed" from="Update_list" to="." method="update_player_list_local"]
+[connection signal="pressed" from="Start" to="." method="game_setup"]

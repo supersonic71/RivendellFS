@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sabaton.ogg-10412e263f3a15bc48afa42e2fc75e4c.oggstr"
+
+[deps]
+
+source_file="res://sabaton.ogg"
+dest_files=[ "res://.import/sabaton.ogg-10412e263f3a15bc48afa42e2fc75e4c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

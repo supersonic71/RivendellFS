@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sputnik_beep.ogg-303236f8b5fbfda659f4ba617c5e1f28.oggstr"
+
+[deps]
+
+source_file="res://sputnik_beep.ogg"
+dest_files=[ "res://.import/sputnik_beep.ogg-303236f8b5fbfda659f4ba617c5e1f28.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

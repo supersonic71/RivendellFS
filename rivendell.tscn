@@ -1,0 +1,311 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://HUD.gd" type="Script" id=1]
+[ext_resource path="res://runway.tscn" type="PackedScene" id=2]
+[ext_resource path="res://hdr/086_hdrmaps_com_free.exr" type="Texture" id=3]
+[ext_resource path="res://pause.gd" type="Script" id=4]
+[ext_resource path="res://nodes/ocean.tscn" type="PackedScene" id=5]
+[ext_resource path="res://rivendell.gd" type="Script" id=6]
+[ext_resource path="res://assets/control.jpeg" type="Texture" id=7]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=8]
+[ext_resource path="res://tdata/data.hterrain" type="Resource" id=9]
+[ext_resource path="res://Ground037_2K-JPG/Ground037_2K_Color.jpg" type="Texture" id=10]
+[ext_resource path="res://Ground037_2K-JPG/Ground037_2K_Normal.jpg" type="Texture" id=11]
+[ext_resource path="res://Rock035_2K-JPG/Rock035_2K_Color.jpg" type="Texture" id=12]
+[ext_resource path="res://Rock035_2K-JPG/Rock035_2K_Normal.jpg" type="Texture" id=13]
+[ext_resource path="res://PavingStones069_2K-JPG/PavingStones069_2K_Normal.jpg" type="Texture" id=14]
+[ext_resource path="res://PavingStones069_2K-JPG/PavingStones069_2K_Color.jpg" type="Texture" id=15]
+[ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=16]
+[ext_resource path="res://hudstyle.tres" type="StyleBox" id=17]
+[ext_resource path="res://clipart529499.png" type="Texture" id=18]
+[ext_resource path="res://debug.gd" type="Script" id=19]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="PanoramaSky" id=4]
+panorama = ExtResource( 3 )
+
+[sub_resource type="Environment" id=5]
+background_mode = 2
+background_sky = SubResource( 4 )
+background_sky_orientation = Basis( 1, 0, 0, -0.1, 1, 0, 0, 0, 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+fog_enabled = true
+fog_depth_begin = 100.0
+fog_depth_end = 0.0
+tonemap_mode = 2
+tonemap_exposure = 2.9
+auto_exposure_scale = 0.2
+auto_exposure_max_luma = 10.0
+ssao_radius = 59.3
+ssao_intensity = 50.0
+ssao_radius2 = 32.7
+ssao_intensity2 = 26.3
+ssao_bias = 0.316
+ssao_light_affect = 1.0
+dof_blur_far_enabled = true
+dof_blur_far_distance = 5000.0
+dof_blur_far_amount = 0.0
+dof_blur_near_enabled = true
+dof_blur_near_distance = 10.59
+glow_intensity = 5.54
+
+[node name="Spatial" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.5327 )
+script = ExtResource( 6 )
+
+[node name="runway" parent="." instance=ExtResource( 2 )]
+transform = Transform( 9.85757, 0, 0, 0, 0.178687, 0, 0, 0, 1320.29, 0, 1507.81, 1511.65 )
+
+[node name="HUD" type="Panel" parent="."]
+self_modulate = Color( 0.176471, 0.156863, 0.847059, 0 )
+show_behind_parent = true
+margin_top = -24.9879
+margin_right = 1933.0
+margin_bottom = 1071.01
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="airspeed" type="Label" parent="HUD"]
+anchor_top = 0.727
+anchor_right = 0.72
+anchor_bottom = 0.916
+margin_left = 51.7384
+margin_top = 108.479
+margin_right = -1205.02
+margin_bottom = -52.6648
+custom_styles/normal = ExtResource( 17 )
+custom_fonts/font = ExtResource( 16 )
+text = "AIRSPEED"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="altitude" type="Label" parent="HUD"]
+anchor_left = 0.81
+anchor_top = 0.5
+anchor_right = 0.81
+anchor_bottom = 0.5
+margin_left = -5.57764
+margin_top = 357.271
+margin_right = 76.4224
+margin_bottom = 378.271
+custom_styles/normal = ExtResource( 17 )
+custom_fonts/font = ExtResource( 16 )
+text = "ALTITUDE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vs" type="Label" parent="HUD"]
+anchor_left = 0.944
+anchor_top = 0.625
+anchor_right = 0.944
+anchor_bottom = 0.625
+margin_left = -15.1753
+margin_top = 220.271
+margin_right = 6.82471
+margin_bottom = 241.271
+custom_styles/normal = ExtResource( 17 )
+custom_fonts/font = ExtResource( 16 )
+text = "VS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="heading" type="Sprite" parent="HUD"]
+position = Vector2( 157.305, 157.15 )
+scale = Vector2( 0.331969, 0.331969 )
+texture = ExtResource( 18 )
+offset = Vector2( -18, 2 )
+
+[node name="thrust" type="Label" parent="HUD"]
+margin_left = 252.825
+margin_top = 905.271
+margin_right = 341.825
+margin_bottom = 954.271
+custom_styles/normal = ExtResource( 17 )
+custom_fonts/font = ExtResource( 16 )
+text = "THRUST"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gforce" type="Label" parent="HUD"]
+margin_left = 930.639
+margin_top = 905.271
+margin_right = 970.639
+margin_bottom = 926.271
+rect_rotation = 0.369585
+custom_styles/normal = ExtResource( 17 )
+custom_fonts/font = ExtResource( 16 )
+text = "G"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="debug" type="Label" parent="HUD"]
+anchor_left = 0.529
+anchor_top = 0.097
+anchor_right = 0.529
+anchor_bottom = 0.097
+margin_left = -956.79
+margin_top = 210.421
+margin_right = -850.79
+margin_bottom = 231.421
+custom_styles/normal = ExtResource( 17 )
+custom_fonts/font = ExtResource( 16 )
+text = "DEBUG INFO"
+script = ExtResource( 19 )
+
+[node name="blackout" type="Panel" parent="HUD"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -1634.67
+margin_top = -31.318
+margin_right = -570.667
+margin_bottom = 607.682
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="redout" type="Panel" parent="HUD"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -2098.81
+margin_top = 858.548
+margin_right = -1060.81
+margin_bottom = 1489.55
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="aoa" type="Label" parent="HUD"]
+anchor_left = 0.161
+anchor_top = 0.673
+anchor_right = 0.161
+anchor_bottom = 0.673
+margin_left = 136.472
+margin_top = 167.663
+margin_right = 176.472
+margin_bottom = 188.663
+custom_styles/normal = ExtResource( 17 )
+custom_fonts/font = ExtResource( 16 )
+text = "AOA"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fps_count" type="Label" parent="HUD"]
+margin_left = 1805.01
+margin_top = 62.4429
+margin_right = 1847.01
+margin_bottom = 83.4429
+custom_styles/normal = ExtResource( 17 )
+custom_fonts/font = ExtResource( 16 )
+text = "FPS : "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HTerrain" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, -10000, 0, -7000 )
+script = ExtResource( 8 )
+map_scale = Vector3( 30, 30, 30 )
+_terrain_data = ExtResource( 9 )
+chunk_size = 32
+shader_type = "Classic4Lite"
+custom_shader = null
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+ground/albedo_bump_0 = ExtResource( 10 )
+ground/normal_roughness_0 = ExtResource( 11 )
+ground/albedo_bump_1 = ExtResource( 12 )
+ground/normal_roughness_1 = ExtResource( 13 )
+ground/albedo_bump_2 = ExtResource( 15 )
+ground/normal_roughness_2 = ExtResource( 14 )
+ground/albedo_bump_3 = null
+ground/normal_roughness_3 = null
+
+[node name="Host" type="Button" parent="."]
+margin_left = 907.851
+margin_top = 312.745
+margin_right = 1071.85
+margin_bottom = 385.744
+custom_fonts/font = ExtResource( 16 )
+text = "HOST"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join" type="Button" parent="."]
+margin_left = 907.851
+margin_top = 426.658
+margin_right = 1073.85
+margin_bottom = 496.658
+custom_fonts/font = ExtResource( 16 )
+text = "Join"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Update_list" type="Button" parent="."]
+margin_left = 2147.71
+margin_top = 426.658
+margin_right = 2309.71
+margin_bottom = 498.658
+custom_fonts/font = ExtResource( 16 )
+text = "Update list"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="."]
+margin_left = 907.851
+margin_top = 551.239
+margin_right = 1079.85
+margin_bottom = 622.239
+custom_fonts/font = ExtResource( 16 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment"]
+transform = Transform( 1, 0, 0, 0, 0.902961, -0.429723, 0, 0.429723, 0.902961, 0, 2146.61, 0 )
+shadow_enabled = true
+
+[node name="pause" type="Spatial" parent="."]
+pause_mode = 2
+script = ExtResource( 4 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.996067, -0.0312585, -0.0829123, 0.0314105, 0.999506, 0.000529891, 0.0828548, -0.00313212, 0.996557, 2093.53, 380.615, -1065.97 )
+current = true
+far = 5000.0
+
+[node name="ocean" parent="." instance=ExtResource( 5 )]
+pause_mode = 2
+transform = Transform( 20.4022, 0, 198.957, 0, 250, 0, -198.957, 0, 20.4022, 0, 80.5931, 0 )
+
+[node name="control" type="Sprite" parent="."]
+visible = false
+position = Vector2( 963.26, 519.182 )
+scale = Vector2( 1.67141, 1.68859 )
+texture = ExtResource( 7 )
+[connection signal="pressed" from="Host" to="." method="host_server"]
+[connection signal="pressed" from="Join" to="." method="join_server"]
+[connection signal="pressed" from="Start" to="." method="game_setup"]
