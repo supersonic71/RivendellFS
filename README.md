@@ -1,3 +1,4 @@
+Note - this is old version, will update code soon with new version
 Screenshots -      
 
 
@@ -11,7 +12,13 @@ Screenshots -
 	Trail | MIT | Oussama
 	Cessna172 Low Poly | CC-BY | Kenton
 	sputnik_beep | No Copyright | NASA
+	Drone model object | Personal Use License | zakardian
 	
+Lots of thanks to Christopher Lum's flight mechanics lectures and VDEngineering's Aerospace Blockset tutorials
+https://www.youtube.com/watch?v=TODDZnOT3ro&list=PLxdnSsBqCrrEx3A6W94sQGClk6Q4YCg-h
+https://www.youtube.com/user/vinayak678
+
+
 	
 	
 	
